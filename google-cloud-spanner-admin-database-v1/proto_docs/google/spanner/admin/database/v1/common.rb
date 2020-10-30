@@ -40,6 +40,58 @@ module Google
               include ::Google::Protobuf::MessageExts
               extend ::Google::Protobuf::MessageExts::ClassMethods
             end
+
+            # Encryption configuration describing key resources in Cloud KMS used to
+            # encrypt/decrypt a Cloud Spanner database.
+            # @!attribute [rw] kms_key_name
+            #   @return [::String]
+            #     The resource name of the Cloud KMS key that was used to encrypt and decrypt
+            #     the database. The form of the kms_key_name is
+            #     `projects/<project>/locations/<location>/keyRings/<key_ring>/cryptoKeys\
+            #     /<kms_key_name>`.
+            #     api-linter: core::0122::name-suffix=disabled
+            #     aip.dev/not-precedent: crypto key identifiers like this are listed as a
+            #     canonical example of when field names would be ambiguous without the
+            #     _name suffix and should therefore include it.
+            class EncryptionConfig
+              include ::Google::Protobuf::MessageExts
+              extend ::Google::Protobuf::MessageExts::ClassMethods
+            end
+
+            # Encryption information for a given resource.
+            # If this resource is protected with customer managed encryption, the in-use
+            # Cloud KMS key versions will be specified along with their status.
+            # CMEK is not currently available to end users.
+            # @!attribute [r] encryption_type
+            #   @return [::Google::Cloud::Spanner::Admin::Database::V1::EncryptionInfo::Type]
+            #     Output only. The type of encryption used to protect this resource.
+            # @!attribute [r] encryption_status
+            #   @return [::Google::Rpc::Status]
+            #     Output only. If present, the status of a recent encrypt/decrypt calls on underlying data
+            #     for this resource. Regardless of status, data is always encrypted at rest.
+            # @!attribute [r] kms_key_version
+            #   @return [::String]
+            #     Output only. The Cloud KMS key versions used for a CMEK-protected Spanner resource.
+            class EncryptionInfo
+              include ::Google::Protobuf::MessageExts
+              extend ::Google::Protobuf::MessageExts::ClassMethods
+
+              # Possible encryption types for a resource.
+              module Type
+                # Encryption type was not specified, though data at rest remains encrypted.
+                TYPE_UNSPECIFIED = 0
+
+                # The data backing this resource is encrypted at rest with a key that is
+                # fully managed by Google. No key version or status will be populated.
+                # This is the default state.
+                GOOGLE_DEFAULT_ENCRYPTION = 1
+
+                # The data backing this resource is encrypted at rest with a key that is
+                # managed by the customer. The active version of the key. 'kms_key_version'
+                # will be populated, and 'encryption_status' may be populated.
+                CUSTOMER_MANAGED_ENCRYPTION = 2
+              end
+            end
           end
         end
       end

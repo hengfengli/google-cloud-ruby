@@ -3,16 +3,8 @@
     {
       "git": {
         "name": ".",
-        "remote": "https://github.com/googleapis/google-cloud-ruby.git",
-        "sha": "e1d661afe7586d44a29821d44fe8a4cc6d0a34a9"
-      }
-    },
-    {
-      "git": {
-        "name": "googleapis",
-        "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "874846a1917ee5c3fe271449f3cb9a06e75407be",
-        "internalRef": "326288259"
+        "remote": "git@github.com:hengfengli/google-cloud-ruby.git",
+        "sha": "5c30be82942491cd6129fa6debe1df365f19710a"
       }
     }
   ],
@@ -26,50 +18,5 @@
         "generator": "gapic-generator-ruby"
       }
     }
-  ],
-  "generatedFiles": [
-    ".gitignore",
-    ".repo-metadata.json",
-    ".rubocop.yml",
-    ".yardopts",
-    "AUTHENTICATION.md",
-    "CHANGELOG.md",
-    "Gemfile",
-    "LICENSE.md",
-    "README.md",
-    "Rakefile",
-    "google-cloud-spanner-admin-database-v1.gemspec",
-    "lib/google-cloud-spanner-admin-database-v1.rb",
-    "lib/google/cloud/spanner/admin/database/v1.rb",
-    "lib/google/cloud/spanner/admin/database/v1/database_admin.rb",
-    "lib/google/cloud/spanner/admin/database/v1/database_admin/client.rb",
-    "lib/google/cloud/spanner/admin/database/v1/database_admin/credentials.rb",
-    "lib/google/cloud/spanner/admin/database/v1/database_admin/operations.rb",
-    "lib/google/cloud/spanner/admin/database/v1/database_admin/paths.rb",
-    "lib/google/cloud/spanner/admin/database/v1/version.rb",
-    "lib/google/spanner/admin/database/v1/backup_pb.rb",
-    "lib/google/spanner/admin/database/v1/common_pb.rb",
-    "lib/google/spanner/admin/database/v1/spanner_database_admin_pb.rb",
-    "lib/google/spanner/admin/database/v1/spanner_database_admin_services_pb.rb",
-    "proto_docs/README.md",
-    "proto_docs/google/api/field_behavior.rb",
-    "proto_docs/google/api/resource.rb",
-    "proto_docs/google/iam/v1/iam_policy.rb",
-    "proto_docs/google/iam/v1/options.rb",
-    "proto_docs/google/iam/v1/policy.rb",
-    "proto_docs/google/longrunning/operations.rb",
-    "proto_docs/google/protobuf/any.rb",
-    "proto_docs/google/protobuf/empty.rb",
-    "proto_docs/google/protobuf/field_mask.rb",
-    "proto_docs/google/protobuf/timestamp.rb",
-    "proto_docs/google/rpc/status.rb",
-    "proto_docs/google/spanner/admin/database/v1/backup.rb",
-    "proto_docs/google/spanner/admin/database/v1/common.rb",
-    "proto_docs/google/spanner/admin/database/v1/spanner_database_admin.rb",
-    "proto_docs/google/type/expr.rb",
-    "test/google/cloud/spanner/admin/database/v1/database_admin_operations_test.rb",
-    "test/google/cloud/spanner/admin/database/v1/database_admin_paths_test.rb",
-    "test/google/cloud/spanner/admin/database/v1/database_admin_test.rb",
-    "test/helper.rb"
   ]
 }

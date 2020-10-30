@@ -54,6 +54,22 @@ module Google
             #   @return [::Google::Cloud::Spanner::Admin::Database::V1::RestoreInfo]
             #     Output only. Applicable only for restored databases. Contains information
             #     about the restore source.
+            # @!attribute [r] encryption_config
+            #   @return [::Google::Cloud::Spanner::Admin::Database::V1::EncryptionConfig]
+            #     Output only. Custom encryption configuration (Cloud KMS keys).
+            #     Applicable only for databases using the Customer Managed Encryption Keys
+            #     feature.
+            # @!attribute [r] version_retention_period
+            #   @return [::String]
+            #     Output only. The period in which Cloud Spanner retains all versions of data
+            #     for the database. This is same as the value of version_retention_period
+            #     database option set using
+            #     {::Google::Cloud::Spanner::Admin::Database::V1::DatabaseAdmin::Client#update_database_ddl UpdateDatabaseDdl}. Defaults to 1 hour,
+            #     if not set.
+            # @!attribute [r] earliest_version_time
+            #   @return [::Google::Protobuf::Timestamp]
+            #     Output only. Earliest timestamp at which older versions of the data can be
+            #     read.
             class Database
               include ::Google::Protobuf::MessageExts
               extend ::Google::Protobuf::MessageExts::ClassMethods
@@ -133,6 +149,9 @@ module Google
             #     database. Statements can create tables, indexes, etc. These
             #     statements execute atomically with the creation of the database:
             #     if there is an error in any statement, the database is not created.
+            # @!attribute [rw] encryption_config
+            #   @return [::Google::Cloud::Spanner::Admin::Database::V1::EncryptionConfig]
+            #     Optional.
             class CreateDatabaseRequest
               include ::Google::Protobuf::MessageExts
               extend ::Google::Protobuf::MessageExts::ClassMethods

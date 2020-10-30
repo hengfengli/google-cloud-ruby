@@ -75,6 +75,11 @@ module Google
             #     any referencing database prevents the backup from being deleted. When a
             #     restored database from the backup enters the `READY` state, the reference
             #     to the backup is removed.
+            # @!attribute [r] encryption_info
+            #   @return [::Google::Cloud::Spanner::Admin::Database::V1::EncryptionInfo]
+            #     Output only. The encryption information for the backup.
+            #     If the encryption key protecting this resource is customer managed, then
+            #     kms_key_version will be filled.
             class Backup
               include ::Google::Protobuf::MessageExts
               extend ::Google::Protobuf::MessageExts::ClassMethods

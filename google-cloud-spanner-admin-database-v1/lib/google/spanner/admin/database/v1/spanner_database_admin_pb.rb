@@ -27,6 +27,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :state, :enum, 2, "google.spanner.admin.database.v1.Database.State"
       optional :create_time, :message, 3, "google.protobuf.Timestamp"
       optional :restore_info, :message, 4, "google.spanner.admin.database.v1.RestoreInfo"
+      optional :encryption_config, :message, 5, "google.spanner.admin.database.v1.EncryptionConfig"
+      optional :version_retention_period, :string, 6
+      optional :earliest_version_time, :message, 7, "google.protobuf.Timestamp"
     end
     add_enum "google.spanner.admin.database.v1.Database.State" do
       value :STATE_UNSPECIFIED, 0
@@ -47,6 +50,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :parent, :string, 1
       optional :create_statement, :string, 2
       repeated :extra_statements, :string, 3
+      optional :encryption_config, :message, 4, "google.spanner.admin.database.v1.EncryptionConfig"
     end
     add_message "google.spanner.admin.database.v1.CreateDatabaseMetadata" do
       optional :database, :string, 1
