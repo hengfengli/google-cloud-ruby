@@ -615,6 +615,7 @@ class ::Google::Cloud::Spanner::Admin::Database::V1::DatabaseAdmin::ClientTest <
     parent = "hello world"
     backup_id = "hello world"
     backup = {}
+    encryption_config = {}
 
     create_backup_client_stub = ClientStub.new grpc_response, grpc_operation do |name, request, options:|
       assert_equal :create_backup, name
@@ -622,6 +623,7 @@ class ::Google::Cloud::Spanner::Admin::Database::V1::DatabaseAdmin::ClientTest <
       assert_equal "hello world", request.parent
       assert_equal "hello world", request.backup_id
       assert_equal Gapic::Protobuf.coerce({}, to: ::Google::Cloud::Spanner::Admin::Database::V1::Backup), request.backup
+      assert_equal Gapic::Protobuf.coerce({}, to: ::Google::Cloud::Spanner::Admin::Database::V1::CreateBackupEncryptionConfig), request.encryption_config
       refute_nil options
     end
 
@@ -632,35 +634,35 @@ class ::Google::Cloud::Spanner::Admin::Database::V1::DatabaseAdmin::ClientTest <
       end
 
       # Use hash object
-      client.create_backup({ parent: parent, backup_id: backup_id, backup: backup }) do |response, operation|
+      client.create_backup({ parent: parent, backup_id: backup_id, backup: backup, encryption_config: encryption_config }) do |response, operation|
         assert_kind_of Gapic::Operation, response
         assert_equal grpc_response, response.grpc_op
         assert_equal grpc_operation, operation
       end
 
       # Use named arguments
-      client.create_backup parent: parent, backup_id: backup_id, backup: backup do |response, operation|
+      client.create_backup parent: parent, backup_id: backup_id, backup: backup, encryption_config: encryption_config do |response, operation|
         assert_kind_of Gapic::Operation, response
         assert_equal grpc_response, response.grpc_op
         assert_equal grpc_operation, operation
       end
 
       # Use protobuf object
-      client.create_backup ::Google::Cloud::Spanner::Admin::Database::V1::CreateBackupRequest.new(parent: parent, backup_id: backup_id, backup: backup) do |response, operation|
+      client.create_backup ::Google::Cloud::Spanner::Admin::Database::V1::CreateBackupRequest.new(parent: parent, backup_id: backup_id, backup: backup, encryption_config: encryption_config) do |response, operation|
         assert_kind_of Gapic::Operation, response
         assert_equal grpc_response, response.grpc_op
         assert_equal grpc_operation, operation
       end
 
       # Use hash object with options
-      client.create_backup({ parent: parent, backup_id: backup_id, backup: backup }, grpc_options) do |response, operation|
+      client.create_backup({ parent: parent, backup_id: backup_id, backup: backup, encryption_config: encryption_config }, grpc_options) do |response, operation|
         assert_kind_of Gapic::Operation, response
         assert_equal grpc_response, response.grpc_op
         assert_equal grpc_operation, operation
       end
 
       # Use protobuf object with options
-      client.create_backup ::Google::Cloud::Spanner::Admin::Database::V1::CreateBackupRequest.new(parent: parent, backup_id: backup_id, backup: backup), grpc_options do |response, operation|
+      client.create_backup ::Google::Cloud::Spanner::Admin::Database::V1::CreateBackupRequest.new(parent: parent, backup_id: backup_id, backup: backup, encryption_config: encryption_config), grpc_options do |response, operation|
         assert_kind_of Gapic::Operation, response
         assert_equal grpc_response, response.grpc_op
         assert_equal grpc_operation, operation

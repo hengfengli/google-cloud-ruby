@@ -30,6 +30,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :parent, :string, 1
       optional :backup_id, :string, 2
       optional :backup, :message, 3, "google.spanner.admin.database.v1.Backup"
+      optional :encryption_config, :message, 4, "google.spanner.admin.database.v1.CreateBackupEncryptionConfig"
     end
     add_message "google.spanner.admin.database.v1.CreateBackupMetadata" do
       optional :name, :string, 1
@@ -72,6 +73,16 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :create_time, :message, 2, "google.protobuf.Timestamp"
       optional :source_database, :string, 3
     end
+    add_message "google.spanner.admin.database.v1.CreateBackupEncryptionConfig" do
+      optional :encryption_type, :enum, 1, "google.spanner.admin.database.v1.CreateBackupEncryptionConfig.EncryptionType"
+      optional :kms_key_name, :string, 2
+    end
+    add_enum "google.spanner.admin.database.v1.CreateBackupEncryptionConfig.EncryptionType" do
+      value :ENCRYPTION_TYPE_UNSPECIFIED, 0
+      value :USE_DATABASE_ENCRYPTION, 1
+      value :GOOGLE_DEFAULT_ENCRYPTION, 2
+      value :CUSTOMER_MANAGED_ENCRYPTION, 3
+    end
   end
 end
 
@@ -93,6 +104,8 @@ module Google
             ListBackupOperationsRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("google.spanner.admin.database.v1.ListBackupOperationsRequest").msgclass
             ListBackupOperationsResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("google.spanner.admin.database.v1.ListBackupOperationsResponse").msgclass
             BackupInfo = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("google.spanner.admin.database.v1.BackupInfo").msgclass
+            CreateBackupEncryptionConfig = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("google.spanner.admin.database.v1.CreateBackupEncryptionConfig").msgclass
+            CreateBackupEncryptionConfig::EncryptionType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("google.spanner.admin.database.v1.CreateBackupEncryptionConfig.EncryptionType").enummodule
           end
         end
       end

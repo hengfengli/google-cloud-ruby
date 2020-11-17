@@ -990,7 +990,7 @@ module Google
                 #   @param options [::Gapic::CallOptions, ::Hash]
                 #     Overrides the default settings for this call, e.g, timeout, retries, etc. Optional.
                 #
-                # @overload create_backup(parent: nil, backup_id: nil, backup: nil)
+                # @overload create_backup(parent: nil, backup_id: nil, backup: nil, encryption_config: nil)
                 #   Pass arguments to `create_backup` via keyword arguments. Note that at
                 #   least one keyword argument is required. To specify no parameters, or to keep all
                 #   the default parameter values, pass an empty Hash as a request object (see above).
@@ -1008,6 +1008,13 @@ module Google
                 #     `projects/<project>/instances/<instance>/backups/<backup_id>`.
                 #   @param backup [::Google::Cloud::Spanner::Admin::Database::V1::Backup, ::Hash]
                 #     Required. The backup to create.
+                #   @param encryption_config [::Google::Cloud::Spanner::Admin::Database::V1::CreateBackupEncryptionConfig, ::Hash]
+                #     Optional. An encryption configuration describing the encryption type and key
+                #     resources in Cloud KMS used to encrypt the backup. If no
+                #     `encryption_config` is specified, the backup will use the same
+                #     encryption configuration as the database by default, namely
+                #     {::Google::Cloud::Spanner::Admin::Database::V1::CreateBackupEncryptionConfig#encryption_type encryption_type} =
+                #     USE_DATABASE_ENCRYPTION.
                 #
                 # @yield [response, operation] Access the result along with the RPC operation
                 # @yieldparam response [::Gapic::Operation]
